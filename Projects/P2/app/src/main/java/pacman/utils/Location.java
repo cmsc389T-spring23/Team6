@@ -1,4 +1,5 @@
 package pacman;
+
 class Location {
   public int x;
   public int y;
@@ -18,8 +19,10 @@ class Location {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (!(o instanceof Location)) return false;
+    if (this == o)
+      return true;
+    if (!(o instanceof Location))
+      return false;
     Location loc = (Location) o;
     return x == loc.x && y == loc.y;
   }

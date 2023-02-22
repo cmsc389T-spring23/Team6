@@ -1,4 +1,5 @@
 package pacman;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import javax.swing.JComponent;
@@ -40,7 +41,8 @@ public class Map {
   public void add(String name, Location loc, JComponent comp, Type type) {
     locations.put(name, loc);
     components.put(name, comp);
-    if (!field.containsKey(loc)) field.put(loc, new HashSet<Type>());
+    if (!field.containsKey(loc))
+      field.put(loc, new HashSet<Type>());
     field.get(loc).add(type);
   }
 
@@ -71,6 +73,14 @@ public class Map {
   public JComponent eatCookie(String name) {
     // update locations, components, field, and cookies
     // the id for a cookie at (10, 1) is tok_x10_y1
-    return null;
+    if !name.equals("pacman"){
+      return null;
+    }
+    pacman_loc = locations.get(name);
+    if (field.get(pacman_loc) == Type.COOKIE){
+      cookies++;
+      cookie_name = "tok_x" + pacman_loc.x + "_y" + pacman_loc.y;
+      return components.get(cookie_name);
+    }
   }
 }
