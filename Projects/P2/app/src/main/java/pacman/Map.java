@@ -77,10 +77,16 @@ public class Map {
       return null;
     }
     pacman_loc = locations.get(name);
-    if (field.get(pacman_loc) == Type.COOKIE){
+    if (field.get(pacman_loc).contains(Type.COOKIE)){
       cookies++;
       cookie_name = "tok_x" + pacman_loc.x + "_y" + pacman_loc.y;
-      return components.get(cookie_name);
+      cookie_component = components.get(cookie_name);
+
+      field.get(pacman_loc).remove(Type.COOKIE);
+      locations.remove(cookie_name);
+      components.remove(cookie_name);
+      return cookie_component;
     }
+    return null;
   }
 }
