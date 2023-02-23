@@ -17,7 +17,7 @@ public class TestPacManConsume extends TestCase {
     PacMan pacman2 = frame.addPacMan(new Location(2, 7)); //Creates PacMan at different location from cookie
 
     //Assert that a consumed cookie returns its cookie token
-    assertEquals(pacman1.consume(), tok);
+    assertEquals(pacman1.consume(), cookie_true);
     assertEquals(pacman2.consume(), null);
 
     return;
