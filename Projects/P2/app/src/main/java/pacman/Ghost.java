@@ -2,6 +2,8 @@ package pacman;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+import pacman.Map.Type;
+
 public class Ghost {
   String myName;
   Location myLoc;
@@ -18,6 +20,13 @@ public class Ghost {
   }
 
   public boolean move() {
+    ArrayList<Location> validMoves = get_valid_moves();
+    if (validMoves == null || validMoves.size() != 0) {
+      if (myMap.move(myName, validMoves.get(0), Type.GHOST) == true) {
+        myLoc = validMoves.get(0);
+        return true;
+      }
+    }
     return false;
   }
 
