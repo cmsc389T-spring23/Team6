@@ -18,6 +18,7 @@ public class Ghost {
   }
 
   public boolean move() {
+    
     return false;
   }
 
