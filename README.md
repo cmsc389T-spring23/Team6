@@ -16,12 +16,12 @@ gradle run
 ### is_ghost_in_range()
 For the PacMan's (x,y) position, check the (x-1,y-1), (x-1,y+1), (x+1,y-1), (x+1,y+1) positions for a Ghost. If a Ghost is nearby, the function returns True, otherwise return False. To test, we created two cases. In the first case, a PacMan and Ghost are one space away and True is expected. In the second case, PacMan and Ghost are several spaces away and False is expected.
 
-#### consume()
+### consume()
 If there is a cookie at pacman's current location, this function returns that cookie object, and otherwise it returns null.
 This function determines if there is a cookie at pacman's location by getting the HashSet associated with pacman's current location myLoc through the getLoc() function from myMap.
 If there is a COOKIE Type in this Hashset, the myMap's eatCookie() function is returned with pacman's myName variable as the input. If there was no COOKIE Type in the HashSet the function returns null.
 
-Testing:
+####Testing:
 The test for this function creates a test NoFrame, and then a Cookie object at position (4,5), and two pacman players; one at (4,5) and one at (2,7).
 This test will pass if calling consume on the pacman at (4,5) returns the cookie object (since they are at the same location), and if calling consume on the pacman at (2,7) returns null (since the cookie and pacman are not at the same location).
 
