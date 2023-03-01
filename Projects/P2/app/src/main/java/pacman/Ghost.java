@@ -42,7 +42,7 @@ public class Ghost {
       }
     }
     return false;
-  }
+  } 
 
   public boolean attack() {
     if(is_pacman_in_range()){
