@@ -5,8 +5,12 @@ Kanishk Chinna, Ezana Kebede, Walker Owen, Ashley Rider
 
 
 [insert image of our code running]
-[how to run the code from the command line]
 
+## How to run the code from the command line
+```
+gradle build
+gradle run 
+```
 
 
 [for each function: a description of the implementation, and a description of the test you wrote]
