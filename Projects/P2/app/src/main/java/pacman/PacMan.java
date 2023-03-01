@@ -22,8 +22,8 @@ public class PacMan {
   }
 
   public boolean move() {
-    ArrayList validMoves = get_valid_moves();
-    if (validMoves.size() != 0) {
+    ArrayList<Location> validMoves = get_valid_moves();
+    if (validMoves == null || validMoves.size() != 0) {
       if (myMap.move(myName, validMoves.get(0), Type.PACMAN) == true) {
         myLoc = validMoves.get(0);
         return true;
