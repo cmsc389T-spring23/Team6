@@ -64,8 +64,17 @@ public class Map {
   }
 
   public boolean attack(String Name) {
-    // update gameOver
-    return false;
+    //get location of pacman
+    Location pacman = locations.get(Name);
+    if(pacman.is_ghost_in_range() == true){
+      // update gameOver
+      gameOver = true;
+      return true;
+    }else{
+      return false;
+    }
+   
+    
   }
 
   public JComponent eatCookie(String name) {
