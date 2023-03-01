@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class TestGhostValidMoves extends TestCase {
 
   public void testGhostValidMoves() throws FileNotFoundException {
+    // test
     MainFrame frame = new MainFrame();
     Ghost ghost = frame.addGhost(new Location(9, 11), "name", Color.red);
     ArrayList<Location> loc = new ArrayList<>();
