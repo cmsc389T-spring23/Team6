@@ -5,7 +5,10 @@ Team members: Kanishk Chinna, Ezana Kebede, Walker Owen, Ashley Rider
 
 
 [insert image of our code running]
-[how to run the code from the command line]
+
+### How to Run the Code from the Command Line
+```gradle build
+gradle run```
 
 
 
