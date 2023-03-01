@@ -20,19 +20,16 @@ gradle run
 ### is_ghost_in_range()
 For the PacMan's (x,y) position, check the (x-1,y-1), (x-1,y+1), (x+1,y-1), (x+1,y+1) positions for a Ghost. If a Ghost is nearby, the function returns True, otherwise return False. To test, we created two cases. In the first case, a PacMan and Ghost are one space away and True is expected. In the second case, PacMan and Ghost are several spaces away and False is expected.
 
-#### consume()
+### consume()
 If there is a cookie at pacman's current location, this function returns that cookie object, and otherwise it returns null.
-This function determines if there is a cookie at pacman's location by getting the HashSet associated with pacman's current location myLoc through the getLoc() function from myMap.
+This function determines if there is a cookie at pacman's location by getting the HashSet associated with pacman's current location 'myLoc' through the `getLoc` function from 'myMap'.
 
-If there is a COOKIE Type in this Hashset, the myMap's eatCookie() function is returned with pacman's myName variable as the input. If there was no COOKIE Type in the HashSet the function returns null.
+If there is a COOKIE Type in this Hashset, the myMap's `eatCookie` function is returned with pacman's 'myName' variable as the input. If there was no COOKIE Type in the HashSet the function returns null.
 
-Testing
----
-The test for this function creates a test NoFrame, and then a Cookie object at position (4,5), and two pacman players; one at (4,5) and one at (2,7).
+The test for this function creates a test NoFrame, and then a Cookie object at position (4,5), and two pacman players: one at (4,5) and one at (2,7).
 
-This test will pass if calling consume on the pacman at (4,5) returns the cookie object (since they are at the same location), and if calling consume on the pacman at (2,7) returns null (since the cookie and pacman are not at the same location).
+This test will pass if calling `consume` on the pacman at (4,5) returns the cookie object (since they are at the same location), and if calling `consume` on the pacman at (2,7) returns null (since the cookie and pacman are not at the same location).
 
-### Ghost Class
 ### move()
 Moves the Pacman to one of its valid moving locations.
 The test creates a map and a pacman set to location (2,1). Then we call pacman.move().
@@ -46,6 +43,12 @@ For the Ghost's (x,y) position, check the (x-1,y-1), (x-1,y+1), (x+1,y-1), (x+1,
 Moves the Ghost to one of its valid moving locations.
 The test creates a map and a red ghost named "name" and set its location to (3,4). Then we call ghost.move().
 
+### attack()
+This function returns true if the attack was successful, and false if it failed.
+This function utilizes the `is_pacman_in_range` function to determine if the pacman is in range for attack, and if so, then the Map class (as the Ghost's 'myMap' variable) `attack` function is returned. Otherwise if the pacman is not in range, this function retuns false.
+
+The test for this function creates two Ghosts and one Pacman. The Pacman is at (4,5), one Ghost is at (4,5), and one is at (2,3). The test will pass if the `attack` method for the Ghost at the same location as Pacman returns the same output as the `Map.attack`, and when calling `attack` on the Ghost at (2,3) returns false.
+
 ## Map Class
 
 ### attack()
@@ -54,3 +57,13 @@ Checks to see if a Ghost is able to attack a PacMan by checking `is_pacman_in_ra
 ### getLoc(Location loc)
 Returns the set of "Types" currently at location loc.
 The test creates a map and adds a pacman, ghosts, and cookies throughout the map. A pacman, ghost, and cookie are put at location (2,3). map.getLoc(new Location(2, 3)) is called and we print each Type in the set.
+
+### eatCookie(String name)
+This function verifies that the name passed in is "pacman", and if not it immediately returns null.
+Otheriwse, the function returns the eaten cookie component if there is a cookie at pacman's current location, and null if not.
+
+If the name is correct, it gets the pacman's location by looking up its name in the 'locations' HashMap, and verifying that the type COOKIE is in the HashSet associated with that location.
+
+The amount of cookies then is incremented, the cookie name is constructed in accordance with the format `"tok_x" + pacman_loc.x + "_y" + pacman_loc.y`, the cookie component is retrieved by this name and a copy saved as a variable. The original cookie object is then removed from the field, locations, and components HashMaps, and the copy is returned.
+
+This function is tested by creating a pacman and cookie object at the same location, and it passes if eatCookie returns the cookie object when called, if the number of cookies is increased; and if a second call returns null (to verify that the cookie was indeed eaten, and that null is returned when there is no cookie), and the number of cookies does not change.
