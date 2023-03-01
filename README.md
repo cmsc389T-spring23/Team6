@@ -1,7 +1,7 @@
 # cmsc389T-spring23
 
 ## Pacman Project - Team 6
-Team memebers: Kanishk Chinna, Ezana Kebede, Walker Owen, Ashley Rider
+Team members: Kanishk Chinna, Ezana Kebede, Walker Owen, Ashley Rider
 
 
 [insert image of our code running]
