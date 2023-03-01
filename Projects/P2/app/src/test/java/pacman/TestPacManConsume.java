@@ -9,7 +9,7 @@ public class TestPacManConsume extends TestCase {
     //Creating A Map
     NoFrame frame = new NoFrame(); //Creates A New Map With Walls and Tokens w/o a Display
 
-    //Creating Cookie
+    //Creating Cookie 
     cookie_true = createCookie(frame, 4, 5);
 
     //Creating Player
