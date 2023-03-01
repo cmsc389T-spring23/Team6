@@ -11,6 +11,11 @@ gradle run
 
 ## Pacman Class
 
+### get_valid_moves()
+This method takes in no arguments but returns an ArrayList of Locations that represent the valid places the current Pacman can move.
+It checks 4 cardinal directions to make sure no wall exists in that area.
+An empty ArrayList will be returned if there exists no valid moves.
+
 ### is_ghost_in_range()
 For the PacMan's (x,y) position, check the (x-1,y-1), (x-1,y+1), (x+1,y-1), (x+1,y+1) positions for a Ghost. If a Ghost is nearby, the function returns True, otherwise return False. To test, we created two cases. In the first case, a PacMan and Ghost are one space away and True is expected. In the second case, PacMan and Ghost are several spaces away and False is expected.
 
@@ -32,6 +37,11 @@ The test creates a map and a pacman set to location (2,1). Then we call pacman.m
 
 ## Ghost Class
 
+### get_valid_moves()
+This method takes in no arguments but returns an ArrayList of Locations that represent the valid places the current Ghost can move.
+Will check 4 cardinal directions to make sure no wall exists in that area.
+An empty ArrayList will be returned if there exists no valid moves.
+
 ### is_pacman_in_range()
 For the Ghost's (x,y) position, check the (x-1,y-1), (x-1,y+1), (x+1,y-1), (x+1,y+1) positions for a PacMan. If a PacMan is nearby, the function returns True, otherwise return False. To test, we created two cases. In the first case, a PacMan and Ghost are one space away and True is expected. In the second case, PacMan and Ghost are several spaces away and False is expected.
 
@@ -46,6 +56,13 @@ This function utilizes the `is_pacman_in_range` function to determine if the pac
 The test for this function creates two Ghosts and one Pacman. The Pacman is at (4,5), one Ghost is at (4,5), and one is at (2,3). The test will pass if the `attack` method for the Ghost at the same location as Pacman returns the same output as the `Map.attack`, and when calling `attack` on the Ghost at (2,3) returns false.
 
 ## Map Class
+
+### move()
+Takes in the name of the object to be moved, the new location, and the type of the object.
+Error handling to make sure that the object with this name and type exist and that the location is valid.
+Updates locations map entry with the current name to new location.
+Adds type to field entry at new location.
+Sets new location for component.
 
 ### attack()
 Checks to see if a Ghost is able to attack a PacMan by checking `is_pacman_in_range` from the PacMan class. If a PacMan is nearby, Ghost "eats" PacMan by setting `gameover` to true and returning True. Otherwise, `gameover` doesn't get updated and False is returned. We test this by putting PacMan and Ghost nearby and expecting True to be returned and setting them multiple spaces apart and expecting False.
