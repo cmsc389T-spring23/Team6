@@ -1,6 +1,6 @@
 # cmsc389T-spring23
 
-## Pacman
+## Pacman - Team 6
 ---
 Kanishk Chinna, Ezana Kebede, Walker Owen, Ashley Rider
 
