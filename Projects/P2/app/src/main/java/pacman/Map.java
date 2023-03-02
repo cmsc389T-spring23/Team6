@@ -1,4 +1,5 @@
 package pacman;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import javax.swing.JComponent;
@@ -40,7 +41,8 @@ public class Map {
   public void add(String name, Location loc, JComponent comp, Type type) {
     locations.put(name, loc);
     components.put(name, comp);
-    if (!field.containsKey(loc)) field.put(loc, new HashSet<Type>());
+    if (!field.containsKey(loc))
+      field.put(loc, new HashSet<Type>());
     field.get(loc).add(type);
   }
 
@@ -53,24 +55,51 @@ public class Map {
   }
 
   public boolean move(String name, Location loc, Type type) {
-    // update locations, components, and field
-    // use the setLocation method for the component to move it to the new location
+    if (locations.get(name) != null && field.get(loc) != null && components.get(name) != null) {
+      locations.put(name, loc);
+      field.get(loc).add(type);
+      components.get(name).setLocation(loc.x, loc.y);
+      return true;
+    }
     return false;
   }
 
   public HashSet<Type> getLoc(Location loc) {
     // wallSet and emptySet will help you write this method
-    return null;
+    return field.get(loc);
   }
 
   public boolean attack(String Name) {
-    // update gameOver
-    return false;
+    //get location of pacman
+    Location pacman = locations.get(Name);
+    if(pacman.is_ghost_in_range() == true){
+      // update gameOver
+      gameOver = true;
+      return true;
+    }else{
+      return false;
+    }
+   
+    
   }
 
   public JComponent eatCookie(String name) {
     // update locations, components, field, and cookies
     // the id for a cookie at (10, 1) is tok_x10_y1
+    if !name.equals("pacman"){
+      return null;
+    }
+    pacman_loc = locations.get(name);
+    if (field.get(pacman_loc).contains(Type.COOKIE)){
+      cookies++;
+      cookie_name = "tok_x" + pacman_loc.x + "_y" + pacman_loc.y;
+      cookie_component = components.get(cookie_name);
+
+      field.get(pacman_loc).remove(Type.COOKIE);
+      locations.remove(cookie_name);
+      components.remove(cookie_name);
+      return cookie_component;
+    }
     return null;
   }
 }
