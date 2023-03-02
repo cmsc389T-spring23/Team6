@@ -71,7 +71,8 @@ public class Map {
 
   public boolean attack(String Name) {
     //get location of pacman
-    Location pacman = locations.get(Name);
+    PacMan pacman = new PacMan("name", locations.get(Name), this);
+    //Location pacman = locations.get(Name);
     if(pacman.is_ghost_in_range() == true){
       // update gameOver
       gameOver = true;
