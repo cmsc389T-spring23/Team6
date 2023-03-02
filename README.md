@@ -1,8 +1,6 @@
 # Pacman Project - Team 6
 Team members: Kanishk Chinna, Ezana Kebede, Walker Owen, Ashley Rider
 
-[insert image of our code running]
-
 ## How to run the code from the command line
 ```
 gradle build
@@ -80,3 +78,6 @@ If the name is correct, it gets the pacman's location by looking up its name in 
 The amount of cookies then is incremented, the cookie name is constructed in accordance with the format `"tok_x" + pacman_loc.x + "_y" + pacman_loc.y`, the cookie component is retrieved by this name and a copy saved as a variable. The original cookie object is then removed from the field, locations, and components HashMaps, and the copy is returned.
 
 This function is tested by creating a pacman and cookie object at the same location, and it passes if eatCookie returns the cookie object when called, if the number of cookies is increased; and if a second call returns null (to verify that the cookie was indeed eaten, and that null is returned when there is no cookie), and the number of cookies does not change.
+
+## Image of code playing Pacman
+<img width="591" alt="Screenshot 2023-03-01 at 9 35 01 PM" src="https://user-images.githubusercontent.com/91798586/222316354-2519c60f-2e58-4800-b34c-90d62318c88b.png">
