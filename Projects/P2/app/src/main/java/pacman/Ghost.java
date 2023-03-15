@@ -22,16 +22,16 @@ public class Ghost {
     Location l = myLoc.shift(-1,0);
     Location r = myLoc.shift(1,0);
 
-    if (myMap.getLoc(u).contains(Map.Type.WALL) == false) {
+    if (myMap.getLoc(u) != null && myMap.getLoc(u).contains(Map.Type.WALL) == false) {
       ret.add(u);
     }
-    if (myMap.getLoc(d).contains(Map.Type.WALL) == false) {
+    if (myMap.getLoc(d) != null && myMap.getLoc(d).contains(Map.Type.WALL) == false) {
       ret.add(d);
     }
-    if (myMap.getLoc(l).contains(Map.Type.WALL) == false) {
+    if (myMap.getLoc(l) != null && myMap.getLoc(l).contains(Map.Type.WALL) == false) {
       ret.add(l);
     }
-    if (myMap.getLoc(r).contains(Map.Type.WALL) == false) {
+    if (myMap.getLoc(r) != null && myMap.getLoc(r).contains(Map.Type.WALL) == false) {
       ret.add(r);
     }
   
