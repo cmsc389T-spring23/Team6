@@ -71,14 +71,14 @@ public class Map {
 
   public boolean attack(String Name) {
     //get location of pacman
-    PacMan pacman = new PacMan("name", locations.get(Name), this);
+    Ghost ghost = new Ghost("name", locations.get(Name), this);
     //Location pacman = locations.get(Name);
-    if(pacman.is_ghost_in_range() == true){
+    if(ghost.is_pacman_in_range() == true){
       // update gameOver
       gameOver = true;
-      return true;
-    }else{
       return false;
+    }else{
+      return true;
     }
    
     
