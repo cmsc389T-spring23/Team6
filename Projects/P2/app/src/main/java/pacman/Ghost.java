@@ -56,11 +56,11 @@ public class Ghost {
       for(int j = y-1; j <=y+1; j++){
         Location loc = new Location(i, j);
         if(this.myMap.getLoc(loc).contains(Map.Type.PACMAN)){
-          return true;
+          return false;
         }
       }
     }
-    return false;
+    return true;
   } 
 
   public boolean attack() {
