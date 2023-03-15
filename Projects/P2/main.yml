@@ -13,17 +13,24 @@ jobs:
         java -version
         javac -version
         javac *.java
-  
   TestGhostInRange:
     runs-on: ubuntu-latest
     container: openjdk
     steps:
       - uses: actions/checkout@v2
-      - name: Test Ghost in Range
+       - name: Test Ghost in Range
       run: |
         javac -cp "junit-4.10.jar:." *.java
         java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestGhostInRange
-
+  TestGhostMove:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test Ghost Move
+      run: |
+        javac -cp "junit-4.10.jar:." *.java
+        java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestGhostMove
   TestPacmanInRange:
     runs-on: ubuntu-latest
     container: openjdk
@@ -32,8 +39,16 @@ jobs:
       - name: Test Pacman In Range
       run: |
         javac -cp "junit-4.10.jar:." *.java
-        java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestPacmanInRange
-
+        java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestPacmanInRange      
+  TestPacmanMove:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test Pacman Move
+      run: |
+        javac -cp "junit-4.10.jar:." *.java
+        java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestPacManMove
   TestMapAttack:
     runs-on: ubuntu-latest
     container: openjdk
@@ -42,4 +57,13 @@ jobs:
       - name: Test Map Attack
       run: |
         javac -cp "junit-4.10.jar:." *.java
-        java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestMapAttack
+        java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestMapAttack      
+  TestMapGetLoc:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test Map GetLoc
+      run: |
+        javac -cp "junit-4.10.jar:." *.java
+        java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestMapGetLoc
