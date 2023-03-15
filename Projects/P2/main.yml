@@ -13,3 +13,30 @@ jobs:
         java -version
         javac -version
         javac *.java
+  TestGhostMove:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test Ghost Move
+      run: |
+        javac -cp "junit-4.10.jar:." *.java
+        java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestGhostMove
+  PacmanMove:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test Pacman Move
+      run: |
+        javac -cp "junit-4.10.jar:." *.java
+        java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestPacManMove
+  MapGetLoc:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test Map GetLoc
+      run: |
+        javac -cp "junit-4.10.jar:." *.java
+        java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestMapGetLoc
