@@ -13,3 +13,33 @@ jobs:
         java -version
         javac -version
         javac *.java
+  
+  TestGhostInRange:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build Project
+      run: |
+        javac -cp "junit-4.10.jar:." *.java
+        java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestGhostInRange
+
+  TestPacmanInRange:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build Project
+      run: |
+        javac -cp "junit-4.10.jar:." *.java
+        java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestPacmanInRange
+
+  TestMapAttack:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build Project
+      run: |
+        javac -cp "junit-4.10.jar:." *.java
+        java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestMapAttack
