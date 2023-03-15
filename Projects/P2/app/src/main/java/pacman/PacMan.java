@@ -26,7 +26,7 @@ public class PacMan {
     if (validMoves == null || validMoves.size() != 0) {
       if (myMap.move(myName, validMoves.get(0), Type.PACMAN) == true) {
         myLoc = validMoves.get(0);
-        return true;
+        return false;  // changed from true to false
       }
     }
     return false;
