@@ -9,5 +9,6 @@ public class TestPacManMove extends TestCase {
     pacman.MainFrame frame = new MainFrame(); //Creates A New Map With Walls and Tokens Initialized
     PacMan pacman = frame.addPacMan(new Location(2, 1)); //Creates PacMan at location x, y
     //pacman.move();
+    assertTrue(pacman instanceof PacMan);
   }
 }
