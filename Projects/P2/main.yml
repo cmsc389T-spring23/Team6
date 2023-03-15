@@ -1,0 +1,15 @@
+name: CI
+
+on: [pull, pull_request, workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build Project
+      run: |
+        java -version
+        javac -version
+        javac *.java
