@@ -19,7 +19,7 @@ jobs:
     container: openjdk
     steps:
       - uses: actions/checkout@v2
-      - name: Build Project
+      - name: Test Ghost in Range
       run: |
         javac -cp "junit-4.10.jar:." *.java
         java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestGhostInRange
@@ -29,7 +29,7 @@ jobs:
     container: openjdk
     steps:
       - uses: actions/checkout@v2
-      - name: Build Project
+      - name: Test Pacman In Range
       run: |
         javac -cp "junit-4.10.jar:." *.java
         java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestPacmanInRange
@@ -39,7 +39,7 @@ jobs:
     container: openjdk
     steps:
       - uses: actions/checkout@v2
-      - name: Build Project
+      - name: Test Map Attack
       run: |
         javac -cp "junit-4.10.jar:." *.java
         java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestMapAttack
