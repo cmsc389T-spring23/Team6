@@ -13,6 +13,15 @@ jobs:
         java -version
         javac -version
         javac *.java
+  testMapMove:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build Project
+      run: |
+        javac -cp "junit-4.10.jar:." *.java
+        java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestMapMove
   TestGhostInRange:
     runs-on: ubuntu-latest
     container: openjdk
@@ -22,6 +31,15 @@ jobs:
       run: |
         javac -cp "junit-4.10.jar:." *.java
         java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestGhostInRange
+  testGhostValidMoves:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build Project
+      run: |
+        javac -cp "junit-4.10.jar:." *.java
+        java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestGhostValidMoves
   TestGhostMove:
     runs-on: ubuntu-latest
     container: openjdk
@@ -40,6 +58,11 @@ jobs:
       run: |
         javac -cp "junit-4.10.jar:." *.java
         java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestGhostAttack
+  testPacManValidMoves:
+      - name: Build Project
+      run: |
+        javac -cp "junit-4.10.jar:." *.java
+        java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestPacManValidMoves
   TestPacmanInRange:
     runs-on: ubuntu-latest
     container: openjdk
