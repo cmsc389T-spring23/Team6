@@ -5,7 +5,7 @@ on: [pull, pull_request, workflow_dispatch]
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: openjdk
+    container: openjdk:13
     steps:
       - uses: actions/checkout@v2
       - name: Build Project
@@ -13,7 +13,7 @@ jobs:
           ./gradlew build testClasses -x test
   testMapMove:
     runs-on: ubuntu-latest
-    container: openjdk
+    container: openjdk:13
     steps:
       - uses: actions/checkout@v2
       - name: Build Project
@@ -22,7 +22,7 @@ jobs:
           ./gradlew test --tests TestMapMove
   TestGhostInRange:
     runs-on: ubuntu-latest
-    container: openjdk
+    container: openjdk:13
     steps:
       - uses: actions/checkout@v2
       - name: Test Ghost in Range
@@ -31,7 +31,7 @@ jobs:
           ./gradlew test --tests TestGhostInRange
   testGhostValidMoves:
     runs-on: ubuntu-latest
-    container: openjdk
+    container: openjdk:13
     steps:
       - uses: actions/checkout@v2
       - name: Build Project
@@ -40,7 +40,7 @@ jobs:
           ./gradlew test --tests TestGhostValidMoves
   TestGhostMove:
     runs-on: ubuntu-latest
-    container: openjdk
+    container: openjdk:13
     steps:
       - uses: actions/checkout@v2
       - name: Test Ghost Move
@@ -49,7 +49,7 @@ jobs:
           ./gradlew test --tests TestGhostMove
   TestGhostAttack:
     runs-on: ubuntu-latest
-    container: openjdk
+    container: openjdk:13
     steps:
       - uses: actions/checkout@v2
       - name: Test Ghost Attack
@@ -58,7 +58,7 @@ jobs:
           ./gradlew test --tests TestGhostAttack
   testPacManValidMoves:
     runs-on: ubuntu-latest
-    container: openjdk
+    container: openjdk:13
     steps:
       - uses: actions/checkout@v2
       - name: Build Project
@@ -67,7 +67,7 @@ jobs:
           ./gradlew test --tests TestPacManValidMoves
   TestPacmanInRange:
     runs-on: ubuntu-latest
-    container: openjdk
+    container: openjdk:13
     steps:
       - uses: actions/checkout@v2
       - name: Test Pacman In Range
@@ -76,7 +76,7 @@ jobs:
           ./gradlew test --tests TestPacmanInRange      
   TestPacmanMove:
     runs-on: ubuntu-latest
-    container: openjdk
+    container: openjdk:13
     steps:
       - uses: actions/checkout@v2
       - name: Test Pacman Move
@@ -85,7 +85,7 @@ jobs:
           ./gradlew test --tests TestPacManMove
   TestPacmanConsume:
     runs-on: ubuntu-latest
-    container: openjdk
+    container: openjdk:13
     steps:
       - uses: actions/checkout@v2
       - name: Test Pacman Consume
@@ -94,7 +94,7 @@ jobs:
           ./gradlew test --tests TestPacManConsume
   TestMapAttack:
     runs-on: ubuntu-latest
-    container: openjdk
+    container: openjdk:13
     steps:
       - uses: actions/checkout@v2
       - name: Test Map Attack
@@ -103,7 +103,7 @@ jobs:
           ./gradlew test --tests TestMapAttack      
   TestMapGetLoc:
     runs-on: ubuntu-latest
-    container: openjdk
+    container: openjdk:13
     steps:
       - uses: actions/checkout@v2
       - name: Test Map GetLoc
@@ -112,7 +112,7 @@ jobs:
           ./gradlew test --tests TestMapGetLoc      
   TestMapEatCookie:
     runs-on: ubuntu-latest
-    container: openjdk
+    container: openjdk:13
     steps:
       - uses: actions/checkout@v2
       - name: Test Map EatCookie
