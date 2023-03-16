@@ -91,7 +91,7 @@ public class Map {
       return null;
     }
     Location pacman_loc = locations.get(name);
-    if (field.get(pacman_loc).contains(Type.COOKIE)){
+    if (field.get(pacman_loc).contains(Type.GHOST)){
       cookies++;
       String cookie_name = "tok_x" + pacman_loc.x + "_y" + pacman_loc.y;
       JComponent cookie_component = components.get(cookie_name);
