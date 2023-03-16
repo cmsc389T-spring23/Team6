@@ -22,20 +22,20 @@ public class Ghost {
     Location l = myLoc.shift(-1,0);
     Location r = myLoc.shift(1,0);
 
-    if (myMap.getLoc(u).contains(Map.Type.WALL) == false) {
+    if (myMap.getLoc(u) != null && myMap.getLoc(u).contains(Map.Type.WALL) == false) {
       ret.add(u);
     }
-    if (myMap.getLoc(d).contains(Map.Type.WALL) == false) {
+    if (myMap.getLoc(d) != null && myMap.getLoc(d).contains(Map.Type.WALL) == false) {
       ret.add(d);
     }
-    if (myMap.getLoc(l).contains(Map.Type.WALL) == false) {
+    if (myMap.getLoc(l) != null && myMap.getLoc(l).contains(Map.Type.WALL) == false) {
       ret.add(l);
     }
-    if (myMap.getLoc(r).contains(Map.Type.WALL) == false) {
+    if (myMap.getLoc(r) != null && myMap.getLoc(r).contains(Map.Type.WALL) == false) {
       ret.add(r);
     }
   
-    return ret;
+    return new ArrayList<Location>();
   }
 
   public boolean move() {
@@ -43,7 +43,7 @@ public class Ghost {
     if (validMoves == null || validMoves.size() != 0) {
       if (myMap.move(myName, validMoves.get(0), Type.GHOST) == true) {
         myLoc = validMoves.get(0);
-        return true;
+        return false;  // changed from true to false
       }
     }
     return false;
@@ -56,11 +56,11 @@ public class Ghost {
       for(int j = y-1; j <=y+1; j++){
         Location loc = new Location(i, j);
         if(this.myMap.getLoc(loc).contains(Map.Type.PACMAN)){
-          return true;
+          return false;
         }
       }
     }
-    return false;
+    return true;
   } 
 
   public boolean attack() {

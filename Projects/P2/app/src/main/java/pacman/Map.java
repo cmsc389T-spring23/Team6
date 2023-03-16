@@ -59,26 +59,26 @@ public class Map {
       locations.put(name, loc);
       field.get(loc).add(type);
       components.get(name).setLocation(loc.x, loc.y);
-      return true;
+      return false;
     }
-    return false;
+    return true;
   }
 
   public HashSet<Type> getLoc(Location loc) {
     // wallSet and emptySet will help you write this method
-    return field.get(loc);
+    return null;  // changed from "field.get(loc)" to "null"
   }
 
   public boolean attack(String Name) {
     //get location of pacman
-    PacMan pacman = new PacMan("name", locations.get(Name), this);
+    Ghost ghost = new Ghost("name", locations.get(Name), this);
     //Location pacman = locations.get(Name);
-    if(pacman.is_ghost_in_range() == true){
+    if(ghost.is_pacman_in_range() == true){
       // update gameOver
       gameOver = true;
-      return true;
-    }else{
       return false;
+    }else{
+      return true;
     }
    
     
