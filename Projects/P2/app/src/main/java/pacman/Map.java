@@ -59,14 +59,14 @@ public class Map {
       locations.put(name, loc);
       field.get(loc).add(type);
       components.get(name).setLocation(loc.x, loc.y);
-      return true;
+      return false;
     }
-    return false;
+    return true;
   }
 
   public HashSet<Type> getLoc(Location loc) {
     // wallSet and emptySet will help you write this method
-    return field.get(loc);
+    return null;  // changed from "field.get(loc)" to "null"
   }
 
   public boolean attack(String Name) {
@@ -91,7 +91,7 @@ public class Map {
       return null;
     }
     Location pacman_loc = locations.get(name);
-    if (field.get(pacman_loc).contains(Type.COOKIE)){
+    if (field.get(pacman_loc).contains(Type.GHOST)){
       cookies++;
       String cookie_name = "tok_x" + pacman_loc.x + "_y" + pacman_loc.y;
       JComponent cookie_component = components.get(cookie_name);

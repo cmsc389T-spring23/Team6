@@ -37,7 +37,7 @@ public class PacMan {
       ret.add(r);
     }
   
-    return ret;
+    return new ArrayList<Location>();
   }
 
   public boolean move() {
@@ -45,7 +45,7 @@ public class PacMan {
     if (validMoves == null || validMoves.size() != 0) {
       if (myMap.move(myName, validMoves.get(0), Type.PACMAN) == true) {
         myLoc = validMoves.get(0);
-        return true;
+        return false;  // changed from true to false
       }
     }
     return false;
@@ -67,7 +67,7 @@ public class PacMan {
 
   public JComponent consume() {
     if(myMap.getLoc(myLoc).contains(Type.COOKIE)){
-      return myMap.eatCookie(myName);
+      return null;
     }
     return null;
   }

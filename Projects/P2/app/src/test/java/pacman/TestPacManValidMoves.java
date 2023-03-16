@@ -23,6 +23,5 @@ public class TestPacManValidMoves extends TestCase {
     }
     assertEquals(ghost.get_valid_moves(), loc);*/
     assertEquals(pac.get_valid_moves().size(), 2);
-
   }
 }

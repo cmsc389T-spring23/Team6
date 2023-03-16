@@ -35,7 +35,7 @@ public class Ghost {
       ret.add(r);
     }
   
-    return ret;
+    return new ArrayList<Location>();
   }
 
   public boolean move() {
@@ -43,7 +43,7 @@ public class Ghost {
     if (validMoves == null || validMoves.size() != 0) {
       if (myMap.move(myName, validMoves.get(0), Type.GHOST) == true) {
         myLoc = validMoves.get(0);
-        return true;
+        return false;  // changed from true to false
       }
     }
     return false;
@@ -64,7 +64,7 @@ public class Ghost {
   } 
 
   public boolean attack() {
-    if(is_pacman_in_range()){
+    if(!is_pacman_in_range()){
       return myMap.attack(myName);
     }
     return false;
