@@ -59,9 +59,9 @@ public class Map {
       locations.put(name, loc);
       field.get(loc).add(type);
       components.get(name).setLocation(loc.x, loc.y);
-      return true;
+      return false;
     }
-    return false;
+    return true;
   }
 
   public HashSet<Type> getLoc(Location loc) {
