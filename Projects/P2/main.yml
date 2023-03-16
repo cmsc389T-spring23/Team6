@@ -10,9 +10,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build Project
       run: |
-        java -version
-        javac -version
-        javac *.java
+          ./gradlew build testClasses -x test
   testMapMove:
     runs-on: ubuntu-latest
     container: openjdk
@@ -20,8 +18,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build Project
       run: |
-        javac -cp "junit-4.10.jar:." *.java
-        java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestMapMove
+          ./gradlew build testClasses -x test
+          ./gradlew test --tests TestMapMove
   TestGhostInRange:
     runs-on: ubuntu-latest
     container: openjdk
@@ -29,8 +27,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Test Ghost in Range
       run: |
-        javac -cp "junit-4.10.jar:." *.java
-        java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestGhostInRange
+          ./gradlew build testClasses -x test
+          ./gradlew test --tests TestGhostInRange
   testGhostValidMoves:
     runs-on: ubuntu-latest
     container: openjdk
@@ -38,8 +36,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build Project
       run: |
-        javac -cp "junit-4.10.jar:." *.java
-        java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestGhostValidMoves
+          ./gradlew build testClasses -x test
+          ./gradlew test --tests TestGhostValidMoves
   TestGhostMove:
     runs-on: ubuntu-latest
     container: openjdk
@@ -47,8 +45,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Test Ghost Move
       run: |
-        javac -cp "junit-4.10.jar:." *.java
-        java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestGhostMove
+          ./gradlew build testClasses -x test
+          ./gradlew test --tests TestGhostMove
   TestGhostAttack:
     runs-on: ubuntu-latest
     container: openjdk
@@ -56,8 +54,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Test Ghost Attack
       run: |
-        javac -cp "junit-4.10.jar:." *.java
-        java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestGhostAttack
+          ./gradlew build testClasses -x test
+          ./gradlew test --tests TestGhostAttack
   testPacManValidMoves:
     runs-on: ubuntu-latest
     container: openjdk
@@ -65,8 +63,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build Project
       run: |
-        javac -cp "junit-4.10.jar:." *.java
-        java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestPacManValidMoves
+          ./gradlew build testClasses -x test
+          ./gradlew test --tests TestPacManValidMoves
   TestPacmanInRange:
     runs-on: ubuntu-latest
     container: openjdk
@@ -74,8 +72,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Test Pacman In Range
       run: |
-        javac -cp "junit-4.10.jar:." *.java
-        java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestPacmanInRange      
+          ./gradlew build testClasses -x test
+          ./gradlew test --tests TestPacmanInRange      
   TestPacmanMove:
     runs-on: ubuntu-latest
     container: openjdk
@@ -83,8 +81,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Test Pacman Move
       run: |
-        javac -cp "junit-4.10.jar:." *.java
-        java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestPacManMove
+          ./gradlew build testClasses -x test
+          ./gradlew test --tests TestPacManMove
   TestPacmanConsume:
     runs-on: ubuntu-latest
     container: openjdk
@@ -92,8 +90,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Test Pacman Consume
       run: |
-        javac -cp "junit-4.10.jar:." *.java
-        java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestPacManConsume
+          ./gradlew build testClasses -x test
+          ./gradlew test --tests TestPacManConsume
   TestMapAttack:
     runs-on: ubuntu-latest
     container: openjdk
@@ -101,8 +99,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Test Map Attack
       run: |
-        javac -cp "junit-4.10.jar:." *.java
-        java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestMapAttack      
+          ./gradlew build testClasses -x test
+          ./gradlew test --tests TestMapAttack      
   TestMapGetLoc:
     runs-on: ubuntu-latest
     container: openjdk
@@ -110,8 +108,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Test Map GetLoc
       run: |
-        javac -cp "junit-4.10.jar:." *.java
-        java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestMapGetLoc      
+          ./gradlew build testClasses -x test
+          ./gradlew test --tests TestMapGetLoc      
   TestMapEatCookie:
     runs-on: ubuntu-latest
     container: openjdk
@@ -119,5 +117,5 @@ jobs:
       - uses: actions/checkout@v2
       - name: Test Map EatCookie
       run: |
-        javac -cp "junit-4.10.jar:." *.java
-        java -cp "junit-4.10.jar:." org.junit.runner.JUnitCore TestMapEatCookie
+          ./gradlew build testClasses -x test
+          ./gradlew test --tests TestMapEatCookie
